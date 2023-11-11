@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="users"
+            type="com.shoykat.assignmentapp.model.All" />
+    </data>
+
+    <RelativeLayout
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/positionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/positionCount"
+            android:id="@+id/userImg"
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:setUserImg="@{users.profilePic}"
+            android:src="@drawable/ic_launcher_foreground" />
+
+
+        <LinearLayout
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/userImg"
+            android:layout_toStartOf="@+id/coinLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{users.firstName +' '+ users.lastName}"
+                android:textColor="@color/black"
+                android:textSize="13sp"/>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
+                    android:background="@drawable/level_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/idea"/>
+
+                    <TextView
+                        android:layout_marginStart="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:setLevel="@{users.level}"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
+                    android:background="@drawable/gender_bg"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageView
+                        app:setGenderIcon="@{users.gender}"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/male"/>
+
+                    <TextView
+                        android:layout_marginStart="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{users.gender}"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/coinLayout"
+            android:layout_marginEnd="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/coin"/>
+
+            <TextView
+                android:layout_marginStart="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:setCoin="@{users.giftcoin}"
+                android:textColor="#C51162"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
